@@ -71,7 +71,7 @@ train, test = train_test_split(opiniones)
 
 train_input = bert_encoder(train[0], tokenizer, max_len=160)
 
-modelo_final = ContruirModelo(bert_layer, 1, 160)
+modelo_final = ContruirModelo(bert_layer, 1, 512)
 
 
 #Entrenamiento
@@ -85,7 +85,7 @@ modelo_final = ContruirModelo(bert_layer, 1, 160)
 
 #Prueba y validacion
 
-test_input= bert_encoder(test[0], tokenizer, max_len=160)
+test_input= bert_ecoder(test[0], tokenizer, max_len=160)
 ProbPrediccion = modelo_final.predict(test_input)
 prediccion = np.where(ProbPrediccion>.5, 1, 0)
 prediccion
